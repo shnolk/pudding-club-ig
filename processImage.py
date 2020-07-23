@@ -63,6 +63,8 @@ def get_var_value(filename="varstore.dat"):
 your_counter = get_var_value()
 print("Run No. {}".format(your_counter))
 
+
+
 mainSearchWord = randomWords.generateWord()
 
 def bingQuery(searchWord):
@@ -281,11 +283,15 @@ if img.mode != 'RGB':
 
 # caption the image
 def createCaption():
+
+	hardwareFile = open("hardware.dat", "r")
+	if hardwareFile.mode == "r":
+		hardware = hardwareFile.read()
 	# unused caption content:
 	# + randomWords.generateFlowers() + "\n-----------------------------------------------------" \
 	captionString = script + "\nQuery: " + mainSearchWord + " " + \
 					time.strftime("%H:%M:%S %d-%m-%y ") + \
-					"Hardware: skippie" + "\nAttempt " + str(your_counter)
+					"\nHardware: " + hardware + "\nAttempt " + str(your_counter)
 	print(captionString)
 
 	return captionString
