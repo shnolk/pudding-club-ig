@@ -173,7 +173,7 @@ def createObjects(dimg):
 		for j in range(random.randint(0, 25)):
 			# drawing a clump / cluster of items
 			xA, yA = random.randint(-cropSize, cropSize), random.randint(-cropSize, cropSize)
-			print("----- Making an object -----")
+			print("----- Making a "+ i + " -----")
 			dimg = drawObjects(dimg, [xA + (random.randint(-clumpAmount,clumpAmount) * 2), 
 												yA + (random.randint(-clumpAmount,clumpAmount) * 2)], i)
 
