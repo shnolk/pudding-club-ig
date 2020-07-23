@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+# photoshop projects
+**.psd
+**dataset/
+**config/
+**PostOnIg.py
+
 # Distribution / packaging
 .Python
 build/
