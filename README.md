@@ -6,9 +6,11 @@ instabot [https://pypi.org/project/instabot/]
 bing image downloader [https://pypi.org/project/bing-image-downloader/]  
 Pillow [https://pypi.org/project/Pillow/]  
 
-Needs:  
+Needs per Machine:  
 -updated hardware.dat file with hardware name  
--filled out PostOnIg_TEMPLATE.py, then rename as PostOnIg.py
+-filled out PostOnIg_TEMPLATE.py, then rename as PostOnIg.py  
+-crontab configuration (pull from git, post)
+
 
 Log:  
 <i>
