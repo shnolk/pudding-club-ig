@@ -14,7 +14,7 @@ Needs per Machine:
 
 Log:  
 <i>
-23-7-20: Set banana to post 20 minutes past every 8 hours and delete all local files at 20:00 (8:00 PM EST) on sundays.   
+23-7-20: Set banana to post 20 minutes past every 4 hours and delete all local files at 20:00 (8:00 PM EST) on sundays.   
 23-7-20: Ported to banana.  
 22-7-20: Added dithering & other image processing tweaks.  
 21-7-20: Added submittable objects with generative captions.
