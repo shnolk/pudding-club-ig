@@ -291,7 +291,7 @@ def createCaption():
 	# + randomWords.generateFlowers() + "\n-----------------------------------------------------" \
 	captionString = script + "\nQuery: " + mainSearchWord + " " + \
 					time.strftime("%H:%M:%S %d-%m-%y ") + \
-					"\nHardware: " + hardware + "\nAttempt " + str(your_counter)
+					"\nHardware: " + hardware + "Attempt " + str(your_counter)
 	print(captionString)
 
 	return captionString
