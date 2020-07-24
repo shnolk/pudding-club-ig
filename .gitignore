@@ -12,6 +12,7 @@ __pycache__/
 **dataset/
 **config/
 **PostOnIg.py
+**hardware.dat
 
 # Distribution / packaging
 .Python
