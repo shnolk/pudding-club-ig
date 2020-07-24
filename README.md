@@ -14,7 +14,7 @@ Needs per Machine:
 
 Log:  
 <i>
-23-7-20: Ported to banana.
+23-7-20: Ported to banana.  
 22-7-20: Added dithering & other image processing tweaks.  
 21-7-20: Added submittable objects with generative captions.
   </i>
