@@ -9,7 +9,7 @@ Pillow [https://pypi.org/project/Pillow/]
 Needs per Machine:  
 -updated hardware.dat file with hardware name  
 -filled out PostOnIg_TEMPLATE.py, then rename as PostOnIg.py  
--crontab configuration (pull from git, post)
+-crontab configuration (pull upstream master, post)
 
 
 Log:  
