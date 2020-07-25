@@ -17,12 +17,16 @@ objectsThingsList = {
     "cart": ["cart-1"],
     "spirit": ["buddy-1","buddy-2","buddy-3","buddy-4","buddy-5","buddy-6","buddy-7",
                 "buddy-8","buddy-9","buddy-10","buddy-11","buddy-12","buddy-13","buddy-14",
-                "buddy-15"],
+                "buddy-15", "buddy-16", "buddy-17"],
     "emotions": ["emoji-1","emoji-2","emoji-3","emoji-4","emoji-5","emoji-6","emoji-7",
                 "emoji-8"],
     "scissor" : ["scissor-1"],
     "skippie" : ["computer-1"],
-    "banana" : ["computer-2", "banana-1"]
+    "banana" : ["computer-2", "banana-1"],
+    "green apple" : ["buddy-16"],
+    "boot" : ["boot-1"],
+    "shoe" : ["sneaker-1"],
+    "sneaker" : ["sneaker-1"]
 }
 
 objectsPersonsList = {
@@ -35,7 +39,9 @@ objectsPersonsList = {
     "eddie": ["face-4"],
     "sprite": ["buddy-1","buddy-2","buddy-3","buddy-4","buddy-5","buddy-6","buddy-7",
                 "buddy-8","buddy-9","buddy-10","buddy-11","buddy-12","buddy-13","buddy-14",
-                "buddy-15"]
+                "buddy-15", "buddy-16", "buddy-17"],
+    "sloppie":["buddy-16"],
+    "grump":["buddy-17"]
 }
 
 objectsPlacesList = {
@@ -48,13 +54,15 @@ objectsPlacesList = {
     "desert": ["sun-1"],
     "mountain": ["mountain-1","mountain-2","mountain-3"],
     "vortex" : ["vortex"],
-    "store" : ["cart-1"],
+    "store" : ["cart-1", "boot-1", "purse-1", "sneaker-1"],
     "beach" : ["palms-1"],
     "temple": ["buddy-1","buddy-2","buddy-3","buddy-4","buddy-5","buddy-6","buddy-7",
                 "buddy-8","buddy-9","buddy-10","buddy-11","buddy-12","buddy-13","buddy-14",
                 "buddy-15"],
     "party" : ["emoji-1","emoji-2","emoji-3","emoji-4","emoji-5","emoji-6","emoji-7",
-                "emoji-8"]
+                "emoji-8"],
+    "ice castle" : ["buddy-17"],
+    "shoe store" : ["boot-1", "sneaker-1"]
 
 }
 
