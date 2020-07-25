@@ -7,7 +7,7 @@ bing image downloader [https://pypi.org/project/bing-image-downloader/]
 Pillow [https://pypi.org/project/Pillow/]  
 
 Needs per Machine:  
--updated hardware.dat file with hardware name and varstore.dat with attempt No.
+-updated hardware.dat file with hardware name and varstore.dat with attempt No.  
 -filled out PostOnIg_TEMPLATE.py, then rename as PostOnIg.py  
 -crontab configuration (stash, pull upstream master, post, file management[deletion])
 
