@@ -291,9 +291,14 @@ for y in range(random.randint(1, 4)):
 img = img.convert(mode = "RGB", matrix = None, dither = Image.FLOYDSTEINBERG,
 		palette = Image.WEB, colors = noColors)
 
-palimage = Image.new('P', (16, 16))
-palimage.putpalette(paletteRGBCMYK * random.randint(6, 32))
-img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
+if random.randint(0,6) == 1:
+	palimage = Image.new('P', (16, 16))
+	palimage.putpalette(paletteRGBCMYK * random.randint(6, 32))
+	img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
+else:
+	palimage = Image.new('P', (16, 16))
+	palimage.putpalette(paletteRGBCMYK * random.randint(6, 32))
+	img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
 
 # img = img.quantize(noColors, Image.MEDIANCUT, random.randint(0,6), paletteRGBCMYK, dither = Image.FLOYDSTEINBERG)
 
