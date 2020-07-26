@@ -301,6 +301,7 @@ def createCaption():
 save_name = "pudd" + str(your_counter) + '.jpg'
 png_save_name = "pudd" + str(your_counter) + '.png'
 img.save('./dataset/'+ mainSearchWord + '/' + save_name)
+img.save('./dataset/'+ mainSearchWord + '/' + png_save_name)
 
 # img.show()
 
