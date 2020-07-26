@@ -295,8 +295,7 @@ if random.randint(0,6) == 1:
 	palimage = Image.new('P', (16, 16))
 	palimage.putpalette(paletteRGBCMYK * random.randint(6, 32))
 	img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
-elif random.randint(0,6) == 1: break
-else:
+elif random.randint(0,6) != 1: 
 	palimage = Image.new('P', (16, 16))
 	palimage.putpalette(paletteRGBCMYK * random.randint(6, 32))
 	img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
