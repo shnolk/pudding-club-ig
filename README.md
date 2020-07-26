@@ -14,7 +14,7 @@ Needs per Machine:
 
 Log:  
 <i>
-25-7-20: Trying adjusted palette to 8-color R,G,B,C,M,Y, B & W.  
+25-7-20: Trying adjusted palette to 8-color R,G,B,C,M,Y, B & W. Also added random scaling for objects.    
 23-7-20: Set banana to post 20 minutes past every 4 hours and delete all local files at 20:00 (8:00 PM EST) on sundays.   
 23-7-20: Ported to banana.  
 22-7-20: Added dithering & other image processing tweaks.  
