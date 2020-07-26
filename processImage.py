@@ -318,7 +318,7 @@ img.save('./dataset/'+ mainSearchWord + '/' + png_save_name)
 
 
 imgRSZ = Image.open('./dataset/'+ mainSearchWord + '/' + png_save_name)
-imgRSZ = imgRSZ.((700,700))
+imgRSZ = imgRSZ.resize((700,700))
 
 save_name = "pudd" + str(your_counter) + '.jpg'
 imgRSZ.save('./dataset/'+ mainSearchWord + '/' + save_name, optimize = True, quality = 100)
