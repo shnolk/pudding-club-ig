@@ -288,6 +288,9 @@ for y in range(random.randint(1, 4)):
 # 				 palette = Image.ADAPTIVE, colors = noColors)
 
 
+img = img.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
+		palette = Image.WEB, colors = noColors)
+
 palimage = Image.new('P', (16, 16))
 palimage.putpalette(paletteRGBCMYK * 32)
 img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
