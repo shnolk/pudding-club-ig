@@ -291,9 +291,10 @@ for y in range(random.randint(1, 4)):
 img = img.convert(mode = "RGB", matrix = None, dither = Image.FLOYDSTEINBERG,
 		palette = Image.WEB, colors = noColors)
 
-palimage = Image.new('P', (16, 16))
-palimage.putpalette(paletteRGBCMYK * 32)
-img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
+# palimage = Image.new('P', (16, 16))
+# palimage.putpalette(paletteRGBCMYK * 32)
+# img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
+
 # img = img.quantize(noColors, Image.MEDIANCUT, random.randint(0,6), paletteRGBCMYK, dither = Image.FLOYDSTEINBERG)
 
 if img.mode != 'RGB':
@@ -324,7 +325,7 @@ imgRSZ = Image.open('./dataset/'+ mainSearchWord + '/' + png_save_name)
 imgRSZ = imgRSZ.resize((700,700))
 
 save_name = "pudd" + str(your_counter) + '.jpg'
-imgRSZ.save('./dataset/'+ mainSearchWord + '/' + save_name, optimize = True, quality = 100)
+imgRSZ.save('./dataset/'+ mainSearchWord + '/' + save_name, optimize = False, quality = 100)
 
 
 # img.show()
