@@ -33,13 +33,16 @@ paletteRGBCMYK = [
 	]
 noColors = random.randint(2,8)
 
-def quantizetopalette(silf, palette = paletteRGBCMYK, dither=True):
+def quantizetopalette(silf, palette = paletteRGBCMYK, dither=Image.FLOYDSTEINBERG):
     """Convert an RGB or L mode image to use a given P image's palette."""
 
     silf.load()
 
     # use palette from reference image made below
     palette.load()
+
+    # silf = silf.convert('RGB').convert(mode = "P", matrix = None, dither, Image.WEB)
+
     im = silf.im.convert("P", 0, palette.im)
     # the 0 above means turn OFF dithering making solid colors
     return silf._new(im)
@@ -102,6 +105,12 @@ cropSize = random.randint(50,750)
 # shapeSize = int(cropSize/4)
 shapeSize = int(cropSize/random.randint(1,12))
 
+def transformImage(dimg):
+
+	dimg = dimg.resize(random.randint(1,cropSize), random.randint(1,cropSize))
+
+	return dimg
+
 def drawSpine(dimg, color):
 	
 	xy = [(random.randint(-cropSize,cropSize),\
@@ -150,17 +159,20 @@ def drawObjects(dimg, position = [random.randint(-cropSize, cropSize),
 	except Exception as e: 
 		print(e)
 	x, y= position[0], position[1]
-	resizeSize = random.randint(1, shapeSize)
+	resizeSize = [random.randint(1, int(cropSize/2)),
+					random.randint(1, int(cropSize/2))]
 
-	fg = fgPre.resize((resizeSize,resizeSize))
+	fg = fgPre.resize(list(resizeSize))
 	dimg.paste(fg, (x,y), fg)
 	return dimg
 
 def drawImages(dimg, simg):
 	x, y= random.randint(-cropSize, cropSize), random.randint(-cropSize, cropSize)
-	resizeSize = random.randint(1, int(cropSize/2))
+	# resizeSize = random.randint(1, int(cropSize/2))
+	resizeSize = [random.randint(1, int(cropSize/2)),
+					random.randint(1, int(cropSize/2))]
 
-	simg = simg.resize((resizeSize,resizeSize))
+	simg = simg.resize(list(resizeSize))
 	dimg.paste(simg, (x,y))
 	return dimg
 
@@ -185,7 +197,9 @@ def createObjects(dimg):
 
 
 
-def process(dimg, blurAmount=random.randint(0,0)):
+
+
+def process(dimg, blurAmount=random.randint(1,5)):
 	xsize, ysize = dimg.size
 	randomAnchorX, randomAnchorY = 0, 0
 	try: 
@@ -196,7 +210,7 @@ def process(dimg, blurAmount=random.randint(0,0)):
 	box = (randomAnchorX - cropSize, randomAnchorY - cropSize, randomAnchorX, randomAnchorY)
 	# dimg = dimg.filter(GaussianBlur(blurAmount))
 	if random.choice((True, False, False, False)):
-		dimg = dimg.filter(GaussianBlur(1))
+		dimg = dimg.filter(GaussianBlur(blurAmount))
 	dimg = dimg.crop(box)
 	# max filter (bright-colored boxes)
 	# rimg = simg.filter(MaxFilter(size=9))
@@ -211,7 +225,7 @@ def process(dimg, blurAmount=random.randint(0,0)):
 	# 	dimg  = dimg.transpose(Image.ROTATE_180)
 	# if random.randint(0,10) == 1:
 	dimg = dimg.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
-		palette = paletteRGBCMYK, colors = noColors)
+		palette = Image.WEB, colors = noColors)
 
 	if dimg.mode != 'RGB': dimg = dimg.convert('RGB')
 
@@ -230,12 +244,11 @@ while(runQuery):
 		runQuery = False
 
 
-img = process(img,3)
+img = process(img,1)
 
 outputScene = []
 script = ""
 # procedure
-blurProcedure = random.randint(0,0)
 for y in range(random.randint(1, 4)):
 	colorInstance = randomWords.generateColor()
 	for x in range(random.randint(1, 3)):
@@ -248,7 +261,7 @@ for y in range(random.randint(1, 4)):
 		if pick == 2:
 			img = drawScribble(img, colorInstance, random.randint(1,3))
 		if pick == 3:
-			img = process(img, blurProcedure)
+			img = process(img)
 		else: 
 			for z in range(random.randint(1,2)):
 				outputScene = createObjects(img)
@@ -302,7 +315,7 @@ def createCaption():
 # save the image
 save_name = "pudd" + str(your_counter) + '.jpg'
 png_save_name = "pudd" + str(your_counter) + '.png'
-img.save('./dataset/'+ mainSearchWord + '/' + save_name)
+img.save('./dataset/'+ mainSearchWord + '/' + save_name, optimize = True, quality = 100)
 img.save('./dataset/'+ mainSearchWord + '/' + png_save_name)
 
 # img.show()
