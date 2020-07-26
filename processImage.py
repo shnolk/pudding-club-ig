@@ -26,17 +26,13 @@ paletteRGBCMYK = [
 	0, 0, 255, # B
 	255, 255, 0, # Y
 	0, 255, 255, # C
-	255, 0, 255,
-	255,255,255 # M
+	255, 0, 255, # M
+	180,180,180 # w
 
 	]
-
-	# 255, 255, 0, # Y
-	# 0, 255, 255, # C
-	# 255, 0, 0 # M
 noColors = random.randint(2,8)
 
-def quantizetopalette(silf, palette, dither=False):
+def quantizetopalette(silf, palette = paletteRGBCMYK, dither=True):
     """Convert an RGB or L mode image to use a given P image's palette."""
 
     silf.load()
@@ -103,13 +99,13 @@ def read_image(path):
 # cropSize = 500
 cropSize = random.randint(50,750)
 # shapeSize = int(cropSize/4)
-shapeSize = int(cropSize/random.randint(2,12))
+shapeSize = int(cropSize/random.randint(1,12))
 
 def drawSpine(dimg, color):
 	
 	xy = [(random.randint(-cropSize,cropSize),\
 			random.randint(-cropSize,cropSize))
-			for i in range(4)] 
+			for i in range(random.randint(3,6))] 
 	dctx = ImageDraw.Draw(dimg)  # create drawing context
 	dctx.polygon(xy, fill=color)  # draw polygon without outline
 	del dctx
@@ -172,7 +168,7 @@ def createObjects(dimg):
 	scene = randomObjects.generateScene()
 	clumpAmount = 1
 	for i in scene[1]:
-		for j in range(random.randint(0, 25)):
+		for j in range(random.randint(0, 14)):
 			# drawing a clump / cluster of items
 			xA, yA = random.randint(-cropSize, cropSize), random.randint(-cropSize, cropSize)
 			print("----- Making a "+ i + " -----")
@@ -190,8 +186,11 @@ def createObjects(dimg):
 
 def process(dimg, blurAmount=random.randint(0,0)):
 	xsize, ysize = dimg.size
-	randomAnchorX = random.randint(cropSize, xsize)
-	randomAnchorY = random.randint(cropSize, ysize)
+	try: 
+		randomAnchorX = random.randint(cropSize, xsize)
+		randomAnchorY = random.randint(cropSize, ysize)
+	except ValueError:
+		dimg = Image.new('RGB', (cropSize, cropSize), (random.randint(0,255),random.randint(0,255),random.randint(0,255)))
 	box = (randomAnchorX - cropSize, randomAnchorY - cropSize, randomAnchorX, randomAnchorY)
 	# dimg = dimg.filter(GaussianBlur(blurAmount))
 	if random.choice((True, False, False, False)):
@@ -235,7 +234,7 @@ outputScene = []
 script = ""
 # procedure
 blurProcedure = random.randint(0,0)
-for y in range(random.randint(1, 2)):
+for y in range(random.randint(1, 4)):
 	colorInstance = randomWords.generateColor()
 	for x in range(random.randint(1, 3)):
 		img = drawSplotch(img, colorInstance)
@@ -270,14 +269,15 @@ for y in range(random.randint(1, 2)):
 # img = img.convert("1", 8)
 # img = img.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
 # 				 palette = random.choice([Image.ADAPTIVE, paletteRGBCMYK]), colors = noColors)
-img = img.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
-				 palette = Image.ADAPTIVE, colors = noColors)
+# img = img.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
+# 				 palette = Image.ADAPTIVE, colors = noColors)
 
 
-# palimage = Image.new('P', (16, 16))
-# palimage.putpalette(paletteRGBCMYK *32)
-# img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
-# img = img.quantize(noColors, None, 0, paletteRGBCMYK)
+palimage = Image.new('P', (16, 16))
+palimage.putpalette(paletteRGBCMYK * 32)
+img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
+# img = img.quantize(noColors, Image.MEDIANCUT, random.randint(0,6), paletteRGBCMYK, dither = Image.FLOYDSTEINBERG)
+
 if img.mode != 'RGB':
     img = img.convert('RGB')
 
@@ -299,7 +299,10 @@ def createCaption():
 
 # save the image
 save_name = "pudd" + str(your_counter) + '.jpg'
+png_save_name = "pudd" + str(your_counter) + '.png'
 img.save('./dataset/'+ mainSearchWord + '/' + save_name)
+
+# img.show()
 
 # upload the image
 PostOnIg.upload('./dataset/'+ mainSearchWord + '/' + save_name, createCaption())
