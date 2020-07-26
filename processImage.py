@@ -27,7 +27,8 @@ paletteRGBCMYK = [
 	255, 255, 0, # Y
 	0, 255, 255, # C
 	255, 0, 255, # M
-	180,180,180 # w
+	255,255,255
+	# 180,180,180 # w
 
 	]
 noColors = random.randint(2,8)
@@ -186,6 +187,7 @@ def createObjects(dimg):
 
 def process(dimg, blurAmount=random.randint(0,0)):
 	xsize, ysize = dimg.size
+	randomAnchorX, randomAnchorY = 0, 0
 	try: 
 		randomAnchorX = random.randint(cropSize, xsize)
 		randomAnchorY = random.randint(cropSize, ysize)
