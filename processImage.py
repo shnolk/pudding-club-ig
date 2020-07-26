@@ -304,7 +304,7 @@ def createCaption():
 		hardware = hardwareFile.read()
 	# unused caption content:
 	# + randomWords.generateFlowers() + "\n-----------------------------------------------------" \
-	captionString = script + "\nQuery: " + mainSearchWord + " " + \
+	captionString = script + "\nQuery: " + mainSearchWord + " \n" + \
 					time.strftime("%H:%M:%S %d-%m-%y ") + \
 					"\nHardware: " + hardware + "\nAttempt " + str(your_counter)
 	print(captionString)
@@ -313,10 +313,16 @@ def createCaption():
 
 
 # save the image
-save_name = "pudd" + str(your_counter) + '.jpg'
 png_save_name = "pudd" + str(your_counter) + '.png'
-img.save('./dataset/'+ mainSearchWord + '/' + save_name, optimize = True, quality = 100)
 img.save('./dataset/'+ mainSearchWord + '/' + png_save_name)
+
+
+imgRSZ = Image.open('./dataset/'+ mainSearchWord + '/' + png_save_name)
+imgRSZ = imgRSZ.((700,700))
+
+save_name = "pudd" + str(your_counter) + '.jpg'
+imgRSZ.save('./dataset/'+ mainSearchWord + '/' + save_name, optimize = True, quality = 100)
+
 
 # img.show()
 
