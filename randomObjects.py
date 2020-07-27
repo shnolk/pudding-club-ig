@@ -41,7 +41,9 @@ objectsPersonsList = {
                 "buddy-8","buddy-9","buddy-10","buddy-11","buddy-12","buddy-13","buddy-14",
                 "buddy-15", "buddy-16", "buddy-17"],
     "sloppie":["buddy-16"],
-    "grump":["buddy-17"]
+    "grump":["buddy-17"],
+    "jackal":["jackal-1"],
+    "vulture":["vulture-1"]
 }
 
 objectsPlacesList = {
@@ -52,7 +54,7 @@ objectsPlacesList = {
     "new york" : ["new-york"],
     "garden": ["flower-1", "flower-2"],
     "desert": ["sun-1"],
-    "mountain": ["mountain-1","mountain-2","mountain-3"],
+    "mountain": ["mountain-1","mountain-2","mountain-3", "jackal-1"],
     "vortex" : ["vortex"],
     "store" : ["cart-1", "boot-1", "purse-1", "sneaker-1"],
     "beach" : ["palms-1"],
