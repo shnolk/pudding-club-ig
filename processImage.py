@@ -103,7 +103,7 @@ def read_image(path):
 # cropSize = 500
 cropSize = random.randint(50,750)
 # shapeSize = int(cropSize/4)
-shapeSize = int(cropSize/random.randint(1,12))
+shapeSize = int(cropSize/random.randint(2,12))
 
 def transformImage(dimg):
 
@@ -291,7 +291,7 @@ for y in range(random.randint(1, 4)):
 # img = img.convert(mode = "RGB", matrix = None, dither = Image.FLOYDSTEINBERG,
 # 		palette = Image.WEB, colors = noColors)
 		
-img = img.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
+img = img.convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
 		palette = Image.WEB, colors = noColors)
 
 
