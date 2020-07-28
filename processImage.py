@@ -224,8 +224,8 @@ def process(dimg, blurAmount=random.randint(1,5)):
 	# if random.randint(0,50) == 1:
 	# 	dimg  = dimg.transpose(Image.ROTATE_180)
 	# if random.randint(0,10) == 1:
-	# dimg = dimg.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
-		# palette = Image.WEB, colors = noColors)
+	dimg = dimg.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
+		palette = Image.WEB, colors = noColors)
 
 	if dimg.mode != 'RGB': dimg = dimg.convert('RGB')
 
@@ -288,8 +288,12 @@ for y in range(random.randint(1, 4)):
 # 				 palette = Image.ADAPTIVE, colors = noColors)
 
 
-img = img.convert(mode = "RGB", matrix = None, dither = Image.FLOYDSTEINBERG,
+# img = img.convert(mode = "RGB", matrix = None, dither = Image.FLOYDSTEINBERG,
+# 		palette = Image.WEB, colors = noColors)
+		
+img = img.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
 		palette = Image.WEB, colors = noColors)
+
 
 if random.randint(0,6) == 1:
 	palimage = Image.new('P', (16, 16))
