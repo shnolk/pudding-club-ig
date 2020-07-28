@@ -31,7 +31,10 @@ paletteRGBCMYK = [
 	# 180,180,180 # w
 
 	]
-noColors = random.randint(2,8)
+# 	monochromatic
+noColors = random.randint(2,3)
+# original
+# noColors = random.randint(2,8)
 
 def quantizetopalette(silf, palette = paletteRGBCMYK, dither=Image.FLOYDSTEINBERG):
     """Convert an RGB or L mode image to use a given P image's palette."""
@@ -295,17 +298,19 @@ img = img.convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
 		palette = Image.WEB, colors = noColors)
 
 
-if random.randint(0,6) == 1:
-	palimage = Image.new('P', (16, 16))
-	palimage.putpalette(paletteRGBCMYK * random.randint(6, 32))
-	img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
-elif random.randint(0,6) != 1: 
-	palimage = Image.new('P', (16, 16))
-	palimage.putpalette(paletteRGBCMYK *32)
-	img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
-elif random.randint(0,6) != 1:
-	img = img.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
-				 palette = Image.ADAPTIVE, colors = noColors)
+# if random.randint(0,6) == 1:
+# 	palimage = Image.new('P', (16, 16))
+# 	palimage.putpalette(paletteRGBCMYK * random.randint(6, 32))
+# 	img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
+# elif random.randint(0,6) != 1: 
+# 	palimage = Image.new('P', (16, 16))
+# 	palimage.putpalette(paletteRGBCMYK *32)
+# 	img = quantizetopalette(img, palimage, dither=Image.FLOYDSTEINBERG)
+# elif random.randint(0,6) != 1:
+# 	img = img.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
+# 				 palette = Image.ADAPTIVE, colors = noColors)
+img = img.convert('RGB').convert(mode = "P", matrix = None, dither = Image.FLOYDSTEINBERG,
+		palette = Image.ADAPTIVE, colors = noColors)
 
 # img = img.quantize(noColors, Image.MEDIANCUT, random.randint(0,6), paletteRGBCMYK, dither = Image.FLOYDSTEINBERG)
 
