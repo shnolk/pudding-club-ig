@@ -345,10 +345,14 @@ save_name = "pudd" + str(your_counter) + '.jpg'
 imgRSZ.save('./dataset/'+ mainSearchWord + '/' + save_name, optimize = False, quality = 100)
 
 
-# img.show()
 
+# img.show()
+caption = createCaption()
 # upload the image
-PostOnIg.upload('./dataset/'+ mainSearchWord + '/' + save_name, createCaption())
+PostOnIg.upload('./dataset/'+ mainSearchWord + '/' + save_name, caption)
+
+saveString = open('./dataset/' + mainSearchWord + '.txt', 'w+')
+saveString.write(caption)
 
 # os.remove('./dataset/')
 
