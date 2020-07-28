@@ -75,7 +75,7 @@ def bingQuery(searchWord):
 	downloader.download(searchWord, 
 		limit=1,  
 		output_dir='dataset', 
-		adult_filter_off=True, 
+		adult_filter_off=False, 
 		force_replace=True)
 
 	# image_path = filenames[0]
