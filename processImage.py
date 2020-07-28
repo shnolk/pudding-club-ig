@@ -351,7 +351,7 @@ caption = createCaption()
 # upload the image
 PostOnIg.upload('./dataset/'+ mainSearchWord + '/' + save_name, caption)
 
-saveString = open('./dataset/' + mainSearchWord + '/' + save_name + '.txt', 'w+')
+saveString = open('./dataset/' + mainSearchWord + '/' + mainSearchWord + '.txt', 'w+')
 saveString.write(caption)
 saveString.close()
 
