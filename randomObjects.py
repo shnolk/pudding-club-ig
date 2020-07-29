@@ -26,7 +26,10 @@ objectsThingsList = {
     "green apple" : ["buddy-16"],
     "boot" : ["boot-1"],
     "shoe" : ["sneaker-1"],
-    "sneaker" : ["sneaker-1"]
+    "sneaker" : ["sneaker-1"],
+    "mouth" : ["mouth-1", "mouth-2", "mouth-3", "mouth-4", "mouth-5"],
+    "talk" : ["mouth-1", "mouth-2", "mouth-3", "mouth-4", "mouth-5"],
+    "eye" : ["eye-1", "eye-2", "eye-3", "eye-4", "eye-5", "eye-6", "eye-7"]
 }
 
 objectsPersonsList = {
@@ -43,7 +46,9 @@ objectsPersonsList = {
     "sloppie":["buddy-16"],
     "grump":["buddy-17"],
     "jackal":["jackal-1"],
-    "vulture":["vulture-1"]
+    "vulture":["vulture-1"],
+    "face" : ["mouth-1", "mouth-2", "mouth-3", "mouth-4", "mouth-5", "eye-1", "eye-2",
+    			"eye-3", "eye-4", "eye-5", "eye-6", "eye-7"]
 }
 
 objectsPlacesList = {
@@ -64,7 +69,10 @@ objectsPlacesList = {
     "party" : ["emoji-1","emoji-2","emoji-3","emoji-4","emoji-5","emoji-6","emoji-7",
                 "emoji-8"],
     "ice castle" : ["buddy-17"],
-    "shoe store" : ["boot-1", "sneaker-1"]
+    "shoe store" : ["boot-1", "sneaker-1"],
+    "salon" : ["mouth-1", "mouth-2", "mouth-3", "mouth-4", "mouth-5", 
+    			"eye-1", "eye-2", "eye-3", "eye-4", "eye-5", "eye-6", "eye-7"],
+    "watchtower" : ["eye-1", "eye-2", "eye-3", "eye-4", "eye-5", "eye-6", "eye-7"]
 
 }
 
